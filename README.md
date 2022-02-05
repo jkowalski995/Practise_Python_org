@@ -5,5 +5,7 @@ Enjoy!
 
 Already done tasks 1 - 12
 
+The content of each task can be found on practisepython.org
+
 ## TO DO:
 - tasks 13 - 36
