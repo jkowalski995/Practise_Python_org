@@ -1,3 +1,5 @@
+import random
+
 # common numbers function for Exercise_5
 def common(a_list,b_list):
     c_list = []
@@ -61,3 +63,54 @@ def beg_end(a_list):
     new_list.append(a_list[0])
     new_list.append(a_list[len(a_list)-1])
     return new_list
+
+# Fibonacci numbers generator
+def fibonacci(number):
+    num_list = [1, 1]
+    if int(number) < 0:
+        print("Number must be from 0 to infinity")
+    elif int(number) == 0:
+        return []
+    elif int(number) == 1:
+        return [1]
+    elif int(number) == 2:
+        return num_list
+    else:
+        for i in range(2, int(number), 1):
+            num_list.append(num_list[i-2]+num_list[i-1])
+    return num_list
+
+# Removing duplicates - traditional way
+def rmv_dup_trad(a_list):
+    new_list = []
+    for i in a_list:
+        if i not in new_list:
+            new_list.append(i)
+    return new_list
+
+# Removing duplicates - with set
+def rmv_dup_set(a_list):
+    return list(set(a_list))  # without list() it will be the same result but in {} because is it a set not a list
+
+# Exercise_5 in one line
+def ex_5_rmv_dup(a_list, b_list):
+    return list(set((a_list+b_list)))
+
+# Reversing the string
+def rev_str(txt):
+    a = txt.split()
+    rev_txt = " ".join(a[::-1])  # " " - space as a seperator
+    print(rev_txt)
+
+# Password generator
+def pass_gen(number):
+    char_book = "abcdefghijklmnopqrstuwvxyzABCDEFGHIJKLMNOPQRSTUWVXYZ1234567890!@#4%^&*(){}[]"
+    if number == 1:
+        print("Your new password is: ", "".join(random.sample(char_book, 8)))
+    elif number == 2:
+        print("Your new password is: ", "".join(random.sample(char_book, 16)))
+    elif number == 3:
+        print("Your new password is: ", "".join(random.sample(char_book, 24)))
+    else:
+        print("You pick a wrong number!")
+
