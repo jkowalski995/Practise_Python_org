@@ -1,12 +1,16 @@
 import random
+import os
+import requests
+
 
 # common numbers function for Exercise_5
-def common(a_list,b_list):
+def common(a_list, b_list):
     c_list = []
     for a in a_list:
         if a in b_list and a not in c_list:
             c_list.append(a)
     return c_list
+
 
 # rock, paper, scissors game
 def game():
@@ -43,12 +47,14 @@ def game():
         w_2 = 1
         return w_1, w_2
 
+
 # prime number finder
 def prime(num):
     list_p = []
     i = 1
     while i <= num:
-        if num % i == 0: list_p += [i]
+        if num % i == 0:
+            list_p += [i]
         i += 1
     if num == 1:
         print("Number ", num, " is prime!")
@@ -57,12 +63,12 @@ def prime(num):
     else:
         print("Number ", num, " is not prime...")
 
+
 # list beginning and ending
 def beg_end(a_list):
-    new_list = []
-    new_list.append(a_list[0])
-    new_list.append(a_list[len(a_list)-1])
+    new_list = [a_list[0], a_list[len(a_list) - 1]]
     return new_list
+
 
 # Fibonacci numbers generator
 def fibonacci(number):
@@ -80,6 +86,7 @@ def fibonacci(number):
             num_list.append(num_list[i-2]+num_list[i-1])
     return num_list
 
+
 # Removing duplicates - traditional way
 def rmv_dup_trad(a_list):
     new_list = []
@@ -88,19 +95,23 @@ def rmv_dup_trad(a_list):
             new_list.append(i)
     return new_list
 
+
 # Removing duplicates - with set
 def rmv_dup_set(a_list):
     return list(set(a_list))  # without list() it will be the same result but in {} because is it a set not a list
 
+
 # Exercise_5 in one line
 def ex_5_rmv_dup(a_list, b_list):
     return list(set((a_list+b_list)))
+
 
 # Reversing the string
 def rev_str(txt):
     a = txt.split()
     rev_txt = " ".join(a[::-1])  # " " - space as a seperator
     print(rev_txt)
+
 
 # Password generator
 def pass_gen(number):
@@ -114,3 +125,46 @@ def pass_gen(number):
     else:
         print("You pick a wrong number!")
 
+
+# Number appearance on the list
+def list_app(a_list, num):
+    for i in a_list:
+        if i == num:
+            return True
+    return False
+
+
+# Binary search
+def bin_se(a_list, num):
+    while len(a_list) > 1:
+        if a_list[len(a_list) // 2] > num:  # greater than num
+            a_list = a_list[:len(a_list) // 2]
+        else:  # smaller than num
+            a_list = a_list[len(a_list) // 2:]
+    if a_list[0] == num:
+        return True
+    else:
+        return False
+
+
+# Download a file - only first time
+def download(file_name, address):  # file_name with extension
+    if not os.path.isfile('/'+file_name):
+        url = address
+        r = requests.get(url, allow_redirects=True)
+        open(file_name, 'wb').write(r.content)
+
+
+# Read file line by line
+def read_line(file_name):  # file_name with extension
+    dict_count = {}
+    with open(file_name, 'r') as open_file:
+        line = open_file.readline()
+        while line:
+            line = line.strip()
+            if line in dict_count:
+                dict_count[line] += 1
+            else:
+                dict_count[line] = 1
+            line = open_file.readline()
+    return dict_count

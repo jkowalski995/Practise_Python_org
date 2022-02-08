@@ -8,14 +8,14 @@ r_html = r.text
 # print(r_html)
 soup = BeautifulSoup(r_html, features="html.parser")
 
-# os.chdir('/home/jakub/PycharmProjects/practise_python/Exercise_18')
+# os.chdir('/home/jakub/PycharmProjects/practise_python/Exercise_19')
 # x = open('soup', 'wt')
 # x.write(soup.prettify())
 # x.close()
 
 find = soup.find_all('p')  # find all tags with h3
 
-# os.chdir('/home/jakub/PycharmProjects/practise_python/Exercise_18')
+# os.chdir('/home/jakub/PycharmProjects/practise_python/Exercise_19')
 # x = open('find', 'wt')
 # x.write(str(find))
 # x.close()

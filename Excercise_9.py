@@ -16,4 +16,3 @@ while True:
         print("You need ", counter, " guesses to guess the number!")
         break
 print("Game Over")
-#not finished!
