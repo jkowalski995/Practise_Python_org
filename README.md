@@ -1,5 +1,5 @@
-# Practise_Python_org
-This repository contains my own solutions to tasks located at practisepython.org
+# Practice_Python_org
+This repository contains my own solutions to tasks located at practicepython.org
 
 Enjoy!
 
