@@ -168,3 +168,62 @@ def read_line(file_name):  # file_name with extension
                 dict_count[line] = 1
             line = open_file.readline()
     return dict_count
+
+
+# Draw a game board - my solution
+def draw_board(x, y):
+    for i in range(1, x + 1, 1):
+        if x == 1 or y == 1:
+            print("Board size must be grater than 1!")
+            break
+        if i == 1:
+            for z in range(1, y + 1, 1):
+                if z < y:
+                    print(" ---", end='')
+                else:
+                    print(" ---", end='\n')
+            for v in range(1, y + 1, 1):
+                if v == 1:
+                    print("|   |", end='')
+                elif v < y:
+                    print("   |", end='')
+                else:
+                    print("   |", end='\n')
+            for w in range(1, y + 1, 1):
+                if w < y:
+                    print(" ---", end='')
+                else:
+                    print(" ---", end='\n')
+        else:
+            for v in range(1, y + 1, 1):
+                if v == 1:
+                    print("|   |", end='')
+                elif v < y:
+                    print("   |", end='')
+                else:
+                    print("   |", end='\n')
+            for w in range(1, y + 1, 1):
+                if w < y:
+                    print(" ---", end='')
+                else:
+                    print(" ---", end='\n')
+
+
+# Guessing the number - simple guess bot
+def guess_bot():
+    number = 50
+    lst = list(range(1, 100 + 1, 1))
+    counter = 0
+    while len(lst) > 1:
+        counter += 1
+        answer = input("Is it " + str(number) + "? (Y/N)")
+        if answer.lower() == "y":
+            print("I win! And need only " + str(counter) + " guess. That was easy ;)")
+            break
+        else:
+            answer = input("Is Your number (H)igher or (L)ower than: " + str(number))
+            if answer.lower() == "h":
+                number += 1
+            else:
+                number -= 1
+

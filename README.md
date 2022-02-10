@@ -3,9 +3,9 @@ This repository contains my own solutions to tasks located at practicepython.org
 
 Enjoy!
 
-Already done tasks 1 - 23
+Already done tasks 1 - 25
 
 The content of each task can be found on practisepython.org
 
 ## TO DO:
-- tasks 24 - 36
+- tasks 26 - 36
