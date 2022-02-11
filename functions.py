@@ -227,3 +227,38 @@ def guess_bot():
             else:
                 number -= 1
 
+
+# Checking the game board for Tic Tac Toe
+def check(game_1):
+    lst = [0, 0]
+
+    for i in range(3):
+        # rows & columns
+        if game_1[i][0] == game_1[i][1] == game_1[i][2] == 1 or game_1[0][i] == game_1[1][i] == game_1[2][i] == 1:
+            lst = [1, 0]
+        elif game_1[i][0] == game_1[i][1] == game_1[i][2] == 2 or game_1[0][i] == game_1[1][i] == game_1[2][i] == 2:
+            lst = [0, 1]
+        # diagonals
+        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == 1 or game_1[0][2] == game_1[1][1] == game_1[2][0] == 1:
+            lst = [1, 0]
+        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == 2 or game_1[0][2] == game_1[1][1] == game_1[2][0] == 2:
+            lst = [0, 1]
+        else:
+            lst = [1, 1]
+
+    result(lst)
+
+
+# Printing the result for Tic Tac Toe
+def result(lst):
+    if lst[0] == 1 and lst[1] == 0:
+        print("Player One wins!")
+    elif lst[1] == 1 and lst[0] == 0:
+        print("Player Two wins!")
+    elif lst[0] == 1 and lst[1] == 1:
+        print("It's a tie!")
+    else:
+        print("Something went wrong!")
+
+    print(lst)
+
