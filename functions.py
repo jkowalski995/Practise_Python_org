@@ -262,3 +262,58 @@ def result(lst):
 
     print(lst)
 
+
+# Tic Tac Toe game
+def game_ttt():
+    game = [[0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]]
+
+    print("Let's the game begin. \n")
+    i = 0
+    while True:
+        if i == 0 or i == 2 or i == 4 or i == 6 or i == 8:
+            player = "One"
+            sign = "X"
+        else:
+            player = "Two"
+            sign = "O"
+        print(game[0])
+        print(game[1])
+        print(game[2])
+        if i == 9:
+            break
+        i += 1
+        while True:
+            while True:
+                user_one = str(
+                    input("Player " + player + " where You want to place '" + sign +
+                          "'? (row,col) - accepted numbers from 1 to 3: \n"))
+                if "," in user_one:
+                    usr_cor = user_one.split(",")
+                    usr_row = int(usr_cor[0].strip()) - 1
+                    usr_col = int(usr_cor[1].strip()) - 1
+                    if usr_col > 2 or usr_col < 0 or usr_row > 2 or usr_row < 0:
+                        print("Your coordinates are out of range, please choose another")
+                    else:
+                        if game[usr_row][usr_col] == 0:
+                            game[usr_row][usr_col] = sign
+                            break
+                        else:
+                            print("This cell is non-available, please choose another")
+
+                else:
+                    print("Wrong coordinates format - try again")
+            break
+    print("Game Over")
+
+
+# Max of 3
+def max_3(a, b, c):
+    if a > b and a > c:
+        print("Largest number is: " + a)
+    elif b > c and b > a:
+        print("Largest number is: " + b)
+    else:
+        print("largest number is: " + c)
+
