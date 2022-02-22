@@ -233,18 +233,34 @@ def check(game_1):
     lst = [0, 0]
 
     for i in range(3):
-        # rows & columns
-        if game_1[i][0] == game_1[i][1] == game_1[i][2] == 1 or game_1[0][i] == game_1[1][i] == game_1[2][i] == 1:
-            lst = [1, 0]
-        elif game_1[i][0] == game_1[i][1] == game_1[i][2] == 2 or game_1[0][i] == game_1[1][i] == game_1[2][i] == 2:
-            lst = [0, 1]
-        # diagonals
-        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == 1 or game_1[0][2] == game_1[1][1] == game_1[2][0] == 1:
-            lst = [1, 0]
-        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == 2 or game_1[0][2] == game_1[1][1] == game_1[2][0] == 2:
-            lst = [0, 1]
-        else:
-            lst = [1, 1]
+        for z in range(3):
+            # row
+            if game_1[i][0] == "X" and game_1[i][1] == "X" and game_1[i][2] == "X":
+                lst = [1, 0]
+                break
+            # row
+            elif game_1[i][0] == "O" and game_1[i][1] == "O" and game_1[i][2] == "O":
+                lst = [0, 1]
+                break
+            # column
+            elif game_1[0][i] == "X" and game_1[1][i] == "X" and game_1[2][i] == "X":
+                lst = [1, 0]
+                break
+            # column
+            elif game_1[0][i] == "O" and game_1[1][i] == "O" and game_1[2][i] == "O":
+                lst = [0, 1]
+                break
+            # diagonals
+            elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "X" or game_1[0][2] == game_1[1][1] \
+                    == game_1[2][0] == "X":
+                lst = [1, 0]
+                break
+            elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "O" or game_1[0][2] == game_1[1][1] \
+                    == game_1[2][0] == "O":
+                lst = [0, 1]
+                break
+            else:
+                lst = [1, 1]
 
     result(lst)
 
@@ -316,4 +332,3 @@ def max_3(a, b, c):
         print("Largest number is: " + b)
     else:
         print("largest number is: " + c)
-

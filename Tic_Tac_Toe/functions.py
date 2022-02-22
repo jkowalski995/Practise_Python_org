@@ -48,25 +48,37 @@ def game_ttt():
 def check(game_1, y):
     lst = [0, 0]
     for i in range(3):
-        # rows & columns
-        if game_1[i][0] == game_1[i][1] == game_1[i][2] == "X" or game_1[0][i] == game_1[1][i] == game_1[2][i] == "X":
-            lst = [1, 0]
-            break
-        elif game_1[i][0] == game_1[i][1] == game_1[i][2] == "O" or game_1[0][i] == game_1[1][i] == game_1[2][i] == "O":
-            lst = [0, 1]
-            break
-        # diagonals
-        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "X" or game_1[0][2] == game_1[1][1] == game_1[2][0] == "X":
-            lst = [1, 0]
-            break
-        elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "O" or game_1[0][2] == game_1[1][1] == game_1[2][0] == "O":
-            lst = [0, 1]
-            break
-        elif y == 9:
-            lst = [1, 1]
-            break
-        else:
-            break
+        for z in range(3):
+            # row
+            if game_1[i][0] == "X" and game_1[i][1] == "X" and game_1[i][2] == "X":
+                lst = [1, 0]
+                break
+            # row
+            elif game_1[i][0] == "O" and game_1[i][1] == "O" and game_1[i][2] == "O":
+                lst = [0, 1]
+                break
+            # column
+            elif game_1[0][i] == "X" and game_1[1][i] == "X" and game_1[2][i] == "X":
+                lst = [1, 0]
+                break
+            # column
+            elif game_1[0][i] == "O" and game_1[1][i] == "O" and game_1[2][i] == "O":
+                lst = [0, 1]
+                break
+            # diagonals
+            elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "X" or game_1[0][2] == game_1[1][1] \
+                    == game_1[2][0] == "X":
+                lst = [1, 0]
+                break
+            elif game_1[0][0] == game_1[1][1] == game_1[2][2] == "O" or game_1[0][2] == game_1[1][1] \
+                    == game_1[2][0] == "O":
+                lst = [0, 1]
+                break
+            elif y == 9:
+                lst = [1, 1]
+                break
+            else:
+                break
     return lst
 
 
@@ -75,7 +87,7 @@ def result(lst):
     if lst[0] == 1 and lst[1] == 0:
         print("Player One wins! \n Game Over!")
         return 1
-    elif lst[1] == 1 and lst[0] == 0:
+    elif lst[0] == 0 and lst[1] == 1:
         print("Player Two wins \n Game Over!")
         return 1
     elif lst[0] == 1 and lst[1] == 1:
