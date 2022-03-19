@@ -1,4 +1,4 @@
-import json, os
+import json
 
 error = "This person not exist on the list"
 
